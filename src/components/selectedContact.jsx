@@ -19,5 +19,12 @@ export default function selectedContact({selectedContactId}) {
     }
     fetchSelectedContactId()
 },[])
-console.log("Contact: ", contact)}
+console.log("Contact: ", contact);
+return ( <tr>
+  <td>{contact.name}</td>
+        <td>{contact.email}</td>
+        <td>{contact.phone}</td>
+  </tr>
+); 
+}
      
