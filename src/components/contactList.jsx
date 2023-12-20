@@ -1,5 +1,6 @@
 import React from "react"; 
 import { useState } from 'react'
+import ContactRow from "./contactRow";
 
 const dummyContacts = [
     { id: 1, name: "R2-D2", phone: "222-222-2222", email: "r2d2@droids.com" },
@@ -7,10 +8,11 @@ const dummyContacts = [
     { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
   ];
 
-const [contacts, setContacts] = useState(dummyContacts)
+
 
 export default function ContactList() { 
-    console.log("Contacts: ", contacts)
+    const [contacts, setContacts] = useState(dummyContacts)
+    console.log("Contacts: ", contacts);
 
   return ( 
         <table>
@@ -25,9 +27,10 @@ export default function ContactList() {
               <td>Email</td>
               <td>Phone</td>
             </tr>
-            {
+            {contacts.map((contact) => {
+          return <ContactRow key={contact.id} contact={contact} />;
                // Map over data here
-             }
+             })}
           </tbody>
         </table>
     ); 
